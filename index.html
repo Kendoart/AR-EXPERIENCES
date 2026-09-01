@@ -14,39 +14,11 @@
     body {
       margin: 0;
       background: #000;
-      overflow: hidden;
     }
 
     model-viewer {
       width: 100vw;
       height: 100vh;
-    }
-
-    /* AR BUTTON - TOP LEFT */
-    #ar-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-
-      background: white;
-      color: black;
-
-      border: none;
-      border-radius: 25px;
-
-      padding: 14px 24px;
-
-      font-size: 16px;
-      font-weight: bold;
-
-      z-index: 100;
-      cursor: pointer;
-
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    }
-
-    #ar-button:active {
-      transform: scale(0.96);
     }
   </style>
 </head>
@@ -61,13 +33,11 @@
     auto-rotate
     ar
     ar-modes="scene-viewer webxr quick-look"
-    ar-scale="fixed"
-    ar-placement="floor"
     shadow-intensity="1"
     environment-image="neutral">
 
     <button slot="ar-button" id="ar-button">
-      VIEW IN AR
+      View in AR
     </button>
 
   </model-viewer>
