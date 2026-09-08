@@ -8,7 +8,7 @@
 </head>
 <body style="margin: 0">
   <a-scene
-    mindar-image="imageTargetSrc: ./LATTIS.mind; autoStart: true;"
+    mindar-image="imageTargetSrc: ./LATTIS.mind; autoStart: true; filterMinCF: 0.0001; filterBeta: 0.001;"
     renderer="colorManagement: true; physicallyCorrectLights: true"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
@@ -17,7 +17,6 @@
     </a-assets>
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- ライトを4灯に増やし、四方から当てて金属面の見える範囲を広げる -->
     <a-entity light="type: ambient; intensity: 1.2"></a-entity>
     <a-entity light="type: directional; intensity: 1.5" position="1 3 2"></a-entity>
     <a-entity light="type: directional; intensity: 1.2" position="-2 1 1"></a-entity>
