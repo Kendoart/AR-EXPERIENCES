@@ -1,99 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LATTIS AR — GEOMORPH SPECIMEN 001</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEOMORPH SPECIMEN - LATTIS AR Experience</title>
   <style>
-    /* ベーススタイル */
-    body {
+    :root {
+      --bg-color: #0b0c10;
+      --card-bg: #11141a;
+      --section-bg: #181d26;
+      --text-color: #c5c6c7;
+      --accent-color: #66fcf1;
+      --accent-hover: #45a29e;
+      --warning-bg: rgba(245, 158, 11, 0.08);
+      --warning-border: #f59e0b;
+      --warning-text: #fbbf24;
+      --white: #ffffff;
+      --subtext-color: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #0d0f12;
-      color: #e2e8f0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 24px 16px;
+      max-width: 680px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid #222a35;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
-    /* Instagram/アプリ内ブラウザ検知用警告バナー（初期状態は非表示） */
+    /* アプリ内ブラウザ（Instagram/LINE等）用動的警告バナー */
     #in-app-warning {
       display: none;
       background: rgba(234, 179, 8, 0.15);
-      border: 1px solid #eab308;
-      border-radius: 8px;
+      border: 1px solid var(--warning-border);
+      border-radius: 10px;
       padding: 12px 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       font-size: 0.85rem;
       line-height: 1.5;
       color: #fef3c7;
+      text-align: left;
     }
 
     #in-app-warning strong {
       color: #fff;
     }
 
-    /* ヘッダー部 */
-    .header {
+    header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 25px;
     }
 
-    .sub-title {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: #38bdf8;
+    .brand-title {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--accent-color);
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
-    .main-title {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin: 0 0 8px 0;
-      color: #ffffff;
+    h1 {
+      font-size: 2.2rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    .description {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin: 0;
+    .subtitle-en {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 4px;
     }
 
-    /* メインの注意書きボックス (2 devices) */
+    .subtitle-jp {
+      font-size: 0.88rem;
+      color: var(--subtext-color);
+    }
+
+    /* TOP WARNING BOX */
     .warning-box {
-      border: 1px solid #eab308;
-      background-color: rgba(234, 179, 8, 0.05);
+      background: var(--warning-bg);
+      border: 1.5px solid var(--warning-border);
       border-radius: 12px;
-      padding: 16px;
+      padding: 18px 16px;
+      margin-bottom: 30px;
       text-align: center;
-      margin-bottom: 32px;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
     }
 
     .warning-title {
-      color: #eab308;
-      font-weight: 700;
-      font-size: 0.9rem;
+      color: var(--warning-text);
+      font-size: 1.05rem;
+      font-weight: bold;
+      letter-spacing: 1px;
       margin-bottom: 8px;
-      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
     .warning-en {
       color: #fef3c7;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 600;
-      line-height: 1.4;
       margin-bottom: 6px;
+      line-height: 1.4;
     }
 
     .warning-jp {
+      color: #fde68a;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .section {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 25px;
+      border: 1px solid #283141;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .section-title-jp {
+      font-size: 0.88rem;
+      color: var(--subtext-color);
+      display: block;
+      margin-top: 2px;
+      font-weight: normal;
+    }
+
+    /* Action Box */
+    .action-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-ar {
+      display: inline-block;
+      width: 100%;
+      max-width: 360px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #66fcf1 0%, #45a29e 100%);
+      color: #0b0c10;
+      font-weight: bold;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .btn-ar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 252, 241, 0.5);
+    }
+
+    .qr-wrapper {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .qr-wrapper img {
+      width: 160px;
+      height: 160px;
+      display: block;
+    }
+
+    .or-text {
+      font-size: 0.85rem;
+      color: #64748b;
+      position: relative;
+      width: 100%;
+      margin: 5px 0;
+      line-height: 1.4;
+    }
+
+    /* Step Cards Style */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #11141a;
+      padding: 18px 16px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .step-num {
+      background: var(--accent-color);
+      color: #0b0c10;
+      font-weight: bold;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h3 {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .step-content h3 span.jp-title {
+      font-size: 0.88rem;
       color: #cbd5e1;
+      font-weight: normal;
+      margin-left: 6px;
+    }
+
+    .step-content p.en {
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      margin-bottom: 2px;
+    }
+
+    .step-content p.jp {
+      font-size: 0.82rem;
+      color: var(--subtext-color);
+    }
+
+    /* Trigger Image Section */
+    .trigger-img-container {
+      text-align: center;
+    }
+
+    .trigger-img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
       font-size: 0.8rem;
+      color: #475569;
+    }
+
+    @media (min-width: 600px) {
+      .container {
+        padding: 40px;
+      }
     }
   </style>
 </head>
@@ -101,45 +298,135 @@
 
   <div class="container">
 
-    <!-- ① Instagram等のアプリ内ブラウザ時のみ自動表示されるバナー -->
+    <!-- Instagram等のアプリ内ブラウザ時のみ自動表示される上部ヒントバナー -->
     <div id="in-app-warning">
       💡 <strong>For smooth 3D/AR loading:</strong><br>
-      Tap "<strong>...</strong>" in the top right and select <strong>"Open in Safari / Chrome"</strong>.<br>
-      <span style="opacity: 0.8; font-size: 0.8rem;">（読み込みが遅い場合は、右上の「…」から「Safari/Chromeで開く」を選択してください）</span>
+      Tap "<strong>...</strong>" in the top right and select <strong>"Open in Safari"</strong> or <strong>"Open in Chrome"</strong>.<br>
+      <span style="opacity: 0.85; font-size: 0.78rem;">（読み込みが遅い場合は、右上の「…」から「Safari/Chromeで開く」を選択してください）</span>
     </div>
 
-    <!-- ② ヘッダー -->
-    <div class="header">
-      <div class="sub-title">GEOMORPH SPECIMEN 001</div>
-      <h1 class="main-title">LATTIS AR</h1>
-      <p class="description">Experience the artwork in Augmented Reality (AR)</p>
-      <p class="description" style="font-size: 0.8rem;">アートワークをAR（拡張現実）で体験するページです</p>
-    </div>
+    <header>
+      <div class="brand-title">GEOMORPH SPECIMEN 001</div>
+      <h1>LATTIS AR</h1>
+      <p class="subtitle-en">Experience the artwork in Augmented Reality (AR)</p>
+      <p class="subtitle-jp">アートワークをAR（拡張現実）で体験するページです</p>
+    </header>
 
-    <!-- ③ メイン注意書き (すっきり2行改行版) -->
+    <!-- TOP WARNING BOX -->
     <div class="warning-box">
       <div class="warning-title">⚠️ NOTE FOR MOBILE USERS</div>
       <div class="warning-en">
         You need 2 devices (Phone + PC/Tablet)<br>or a physical print to experience AR.
       </div>
-      <div class="warning-jp">
-        (AR体験にはスマホ＋PC画面、または実物プリントが必要です)
+      <div class="warning-jp">（AR体験にはスマホ＋PC画面、または実物プリントが必要です）</div>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="section">
+      <div class="section-title">
+        📱 HOW TO EXPERIENCE
+        <span class="section-title-jp">AR体験の手順</span>
+      </div>
+      <div class="steps-container">
+        
+        <!-- STEP 1 -->
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Preparation <span class="jp-title">/ 準備</span></h3>
+            <p class="en">Open this page on your PC or tablet screen (or prepare a physical print).</p>
+            <p class="jp">このページをPCやタブレットで開くか、実物プリントを用意します。</p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Launch AR Experience <span class="jp-title">/ スマホでARを起動</span></h3>
+            <p class="en">Tap "Open AR Experience" on your phone.</p>
+            <p class="jp">スマホで「AR体験を開く」ボタンをタップします。</p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Grant Camera Access <span class="jp-title">/ 携帯カメラのアクセス許可</span></h3>
+            <p class="en">Tap "Allow" when prompted to grant camera usage.</p>
+            <p class="jp">画面に表示されたら「許可（Allow）」を選択します。</p>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Scan Image Below <span class="jp-title">/ 下の画像に携帯をかざす</span></h3>
+            <p class="en">Aim your phone camera at the LATTIS card on your PC screen or print.</p>
+            <p class="jp">PC画面やプリントの「LATTIS」画像にスマホカメラをかざします。</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- ※ここにAR起動ボタンや手順（HOW TO EXPERIENCE）の続きが入ります -->
+    <!-- AR LAUNCH BUTTON / QR SECTION -->
+    <div class="section">
+      <div class="section-title">
+        🚀 LAUNCH AR
+        <span class="section-title-jp">ARカメラの起動</span>
+      </div>
+      <div class="action-box">
+        <!-- Direct Link Button -->
+        <a href="https://ar.kyokoendoart.com/LATTIS/" class="btn-ar" target="_blank" rel="noopener">
+          Open AR Experience
+        </a>
+        
+        <div class="or-text">
+          ── Or scan the QR code with your phone ──<br>
+          <span style="font-size: 0.78rem;">（またはスマホのカメラでQRコードを読み取ってください）</span>
+        </div>
+        
+        <div class="qr-wrapper">
+          <img src="adobe-express-qr-code.png" alt="AR Experience QR Code">
+        </div>
+      </div>
+    </div>
 
+    <!-- TARGET IMAGE SECTION -->
+    <div class="section">
+      <div class="section-title">
+        🖼️ TARGET ARTWORK
+        <span class="section-title-jp">スキャン対象（トリガー画像）</span>
+      </div>
+      <div class="trigger-img-container">
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; line-height: 1.4;">
+          Point your phone camera at this image on your PC screen.<br>
+          <span style="font-size: 0.78rem;">（PC画面上のこの画像にスマホカメラをかざしてください）</span>
+        </p>
+        <img src="LATTIS_CARD.jpg" alt="GEOMORPH SPECIMEN LATTIS CARD">
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 KYOKO ENDO. All rights reserved.</p>
+    </footer>
   </div>
 
   <script>
-    // InstagramやLINEなどの「アプリ内ブラウザ（WebView）」で開かれたかを判定
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isInAppBrowser = (ua.indexOf("Instagram") > -1) || (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) || (ua.indexOf("Line") > -1);
-
-    // アプリ内ブラウザの時だけ、一番上の控えめなバナーを表示
-    if (isInAppBrowser) {
-      document.getElementById("in-app-warning").style.display = "block";
-    }
+    // Instagram/LINE等の内蔵ブラウザで開かれたかを判定し、該当する場合のみ上部バナーを表示
+    (function() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var isInApp = (ua.indexOf("Instagram") > -1) || (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) || (ua.indexOf("Line") > -1);
+      if (isInApp) {
+        var warningEl = document.getElementById("in-app-warning");
+        if (warningEl) {
+          warningEl.style.display = "block";
+        }
+      }
+    })();
   </script>
 
 </body>
