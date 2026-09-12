@@ -12,9 +12,6 @@
       --text-color: #c5c6c7;
       --accent-color: #66fcf1;
       --accent-hover: #45a29e;
-      --warning-bg: rgba(245, 158, 11, 0.08);
-      --warning-border: #f59e0b;
-      --warning-text: #fbbf24;
       --white: #ffffff;
       --subtext-color: #94a3b8;
     }
@@ -47,22 +44,29 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
-    /* アプリ内ブラウザ（Instagram/LINE等）用動的警告バナー */
+    /* アプリ内ブラウザ（Instagram/LINE等）用動的警告バナー（白背景・黒文字・大きめフォント） */
     #in-app-warning {
       display: none;
-      background: rgba(234, 179, 8, 0.15);
-      border: 1px solid var(--warning-border);
-      border-radius: 10px;
-      padding: 12px 16px;
+      background: #ffffff;
+      color: #000000;
+      border-radius: 12px;
+      padding: 16px 18px;
       margin-bottom: 24px;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       line-height: 1.5;
-      color: #fef3c7;
       text-align: left;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
     }
 
     #in-app-warning strong {
-      color: #fff;
+      color: #000000;
+    }
+
+    .in-app-jp {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: #333333;
     }
 
     header {
@@ -97,19 +101,19 @@
       color: var(--subtext-color);
     }
 
-    /* TOP WARNING BOX */
+    /* TOP WARNING BOX (CYANカラーへ変更) */
     .warning-box {
-      background: var(--warning-bg);
-      border: 1.5px solid var(--warning-border);
+      background: rgba(102, 252, 241, 0.05);
+      border: 1.5px solid var(--accent-color);
       border-radius: 12px;
       padding: 18px 16px;
       margin-bottom: 30px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
+      box-shadow: 0 4px 15px rgba(102, 252, 241, 0.1);
     }
 
     .warning-title {
-      color: var(--warning-text);
+      color: var(--accent-color);
       font-size: 1.05rem;
       font-weight: bold;
       letter-spacing: 1px;
@@ -121,7 +125,7 @@
     }
 
     .warning-en {
-      color: #fef3c7;
+      color: var(--accent-color);
       font-size: 0.98rem;
       font-weight: 600;
       margin-bottom: 6px;
@@ -129,9 +133,10 @@
     }
 
     .warning-jp {
-      color: #fde68a;
+      color: var(--accent-color);
       font-size: 0.85rem;
       line-height: 1.4;
+      opacity: 0.9;
     }
 
     .section {
@@ -298,11 +303,11 @@
 
   <div class="container">
 
-    <!-- Instagram等のアプリ内ブラウザ時のみ自動表示される上部ヒントバナー -->
+    <!-- Instagram等のアプリ内ブラウザ時のみ自動表示される上部ヒントバナー（白背景・黒文字） -->
     <div id="in-app-warning">
-      💡 <strong>For smooth 3D/AR loading:</strong><br>
-      Tap "<strong>...</strong>" in the top right and select <strong>"Open in Safari"</strong> or <strong>"Open in Chrome"</strong>.<br>
-      <span style="opacity: 0.85; font-size: 0.78rem;">（読み込みが遅い場合は、右上の「…」から「Safari/Chromeで開く」を選択してください）</span>
+      💡 <strong>For smooth 3D/AR loading on your phone:</strong><br>
+      Tap "<strong>...</strong>" in the top right and select <strong>"Open in Safari"</strong> or <strong>"Open in Chrome"</strong>.
+      <span class="in-app-jp">（読み込みが遅い場合は、右上の「…」から「Safari/Chromeで開く」を選択してください）</span>
     </div>
 
     <header>
@@ -312,7 +317,7 @@
       <p class="subtitle-jp">アートワークをAR（拡張現実）で体験するページです</p>
     </header>
 
-    <!-- TOP WARNING BOX -->
+    <!-- TOP WARNING BOX (CYAN統一) -->
     <div class="warning-box">
       <div class="warning-title">⚠️ NOTE FOR MOBILE USERS</div>
       <div class="warning-en">
