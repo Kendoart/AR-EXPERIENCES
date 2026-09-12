@@ -1,163 +1,287 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GEOMORPH SPECIMEN — LATTIS | AR Experience</title>
-<style>
-  :root{
-    --bg:#000000;
-    --fg:#f2f4f7;
-    --dim:#9aa4b2;
-    --line:#3a4250;
-    --accent:#bcd6f2;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--fg);
-    font-family:'Helvetica Neue', Arial, 'Hiragino Sans', 'Yu Gothic', sans-serif;
-    letter-spacing:0.03em;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{
-    max-width:560px;
-    margin:0 auto;
-    padding:48px 24px 80px;
-    text-align:center;
-  }
-  .logo{
-    font-size:20px;
-    letter-spacing:0.35em;
-    color:var(--fg);
-    margin-bottom:8px;
-  }
-  .tagline{
-    font-size:15px;
-    letter-spacing:0.2em;
-    color:var(--dim);
-    margin-bottom:44px;
-  }
-  .specimen-title{
-    font-size:16px;
-    letter-spacing:0.25em;
-    color:var(--dim);
-    margin-bottom:6px;
-  }
-  h1{
-    font-size:44px;
-    letter-spacing:0.12em;
-    margin:0 0 32px;
-    font-weight:600;
-  }
-  .card-img{
-    width:100%;
-    max-width:380px;
-    border-radius:2px;
-    box-shadow:0 0 40px rgba(120,160,220,0.15);
-  }
-  hr{
-    border:none;
-    border-top:1px solid var(--line);
-    margin:40px 0;
-  }
-  .section-title{
-    font-size:22px;
-    letter-spacing:0.15em;
-    color:var(--fg);
-    margin-bottom:28px;
-    font-weight:600;
-  }
-  .instruction-img{
-    width:100%;
-    border-radius:2px;
-  }
-  .qr-box{
-    margin:32px auto 0;
-    max-width:220px;
-  }
-  .qr-img{
-    width:100%;
-    background:#fff;
-    padding:12px;
-    border-radius:4px;
-  }
-  .qr-caption{
-    font-size:15px;
-    letter-spacing:0.2em;
-    color:var(--dim);
-    margin-top:14px;
-  }
-  .cta{
-    display:inline-block;
-    margin-top:32px;
-    padding:18px 40px;
-    border:1px solid var(--fg);
-    color:var(--fg);
-    text-decoration:none;
-    font-size:17px;
-    letter-spacing:0.15em;
-    border-radius:2px;
-    transition:background 0.2s, color 0.2s;
-  }
-  .cta:hover{
-    background:var(--fg);
-    color:#000;
-  }
-  .url-plain{
-    display:block;
-    margin-top:18px;
-    font-size:15px;
-    color:var(--dim);
-    word-break:break-all;
-  }
-  .note{
-    margin-top:28px;
-    font-size:14px;
-    line-height:1.9;
-    color:var(--dim);
-    letter-spacing:0.02em;
-  }
-  .note b{ color:var(--fg); }
-  footer{
-    margin-top:64px;
-    font-size:13px;
-    letter-spacing:0.25em;
-    color:var(--line);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEOMORPH SPECIMEN - LATTIS AR Experience</title>
+  <style>
+    :root {
+      --bg-color: #0b0c10;
+      --card-bg: #11141a;
+      --section-bg: #181d26;
+      --text-color: #c5c6c7;
+      --accent-color: #66fcf1;
+      --accent-hover: #45a29e;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid #222a35;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .brand-title {
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #8892b0;
+    }
+
+    .section {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 25px;
+      border: 1px solid #283141;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Action Box */
+    .action-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-ar {
+      display: inline-block;
+      width: 100%;
+      max-width: 340px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #66fcf1 0%, #45a29e 100%);
+      color: #0b0c10;
+      font-weight: bold;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .btn-ar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 252, 241, 0.5);
+    }
+
+    .qr-wrapper {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .qr-wrapper img {
+      width: 160px;
+      height: 160px;
+      display: block;
+    }
+
+    .or-text {
+      font-size: 0.85rem;
+      color: #64748b;
+      position: relative;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    /* Step Cards Style */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #11141a;
+      padding: 16px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .step-num {
+      background: var(--accent-color);
+      color: #0b0c10;
+      font-weight: bold;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h3 {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      color: #a8b2d1;
+    }
+
+    /* Trigger Image Section */
+    .trigger-img-container {
+      text-align: center;
+    }
+
+    .trigger-img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+
+    @media (min-width: 600px) {
+      .container {
+        padding: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <div class="logo">GEOMORPH</div>
-    <div class="tagline">COLLECT&nbsp;&nbsp;/&nbsp;&nbsp;SCAN&nbsp;&nbsp;/&nbsp;&nbsp;EXPERIENCE</div>
+  <div class="container">
+    <header>
+      <div class="brand-title">GEOMORPH SPECIMEN 001</div>
+      <h1>LATTIS AR</h1>
+      <p class="subtitle">アートワークをAR（拡張現実）で体験するページです</p>
+    </header>
 
-    <div class="specimen-title">GEOMORPH SPECIMEN</div>
-    <h1>LATTIS</h1>
-
-    <img class="card-img" src="LATTIS_CARD.jpg" alt="GEOMORPH SPECIMEN — LATTIS" />
-
-    <hr />
-
-    <div class="section-title">HOW TO EXPERIENCE&nbsp;&nbsp;/&nbsp;&nbsp;体験方法</div>
-    <img class="instruction-img" src="AR_INSTRUCTION.png" alt="AR Instructions" />
-
-    <div class="qr-box">
-      <img class="qr-img" src="adobe-express-qr-code.png" alt="Scan to experience AR" />
-      <div class="qr-caption">SCAN TO REVEAL</div>
+    <!-- STEP 1: Launch AR -->
+    <div class="section">
+      <div class="section-title">✨ STEP 1：ARカメラを起動</div>
+      <div class="action-box">
+        <p style="font-size: 0.9rem; color: #cbd5e1;">スマートフォンで閲覧中の方は直接タップしてください</p>
+        
+        <!-- 直接クリックできるURLボタン -->
+        <a href="https://ar.kyokoendoart.com/LATTIS/" class="btn-ar" target="_blank" rel="noopener">🚀 AR体験を開く (カメラ起動)</a>
+        
+        <div class="or-text">── PCでご覧の方はQRコードをスキャン ──</div>
+        
+        <div class="qr-wrapper">
+          <img src="adobe-express-qr-code.png" alt="AR Experience QR Code">
+        </div>
+      </div>
     </div>
 
-    <a class="cta" href="https://ar.kyokoendoart.com/LATTIS/" target="_blank" rel="noopener">OPEN AR EXPERIENCE →</a>
-    <span class="url-plain">https://ar.kyokoendoart.com/LATTIS/</span>
+    <!-- STEP 2: Instruction -->
+    <div class="section">
+      <div class="section-title">📱 STEP 2：体験の手順</div>
+      <div class="steps-container">
+        
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>リンクまたはQRコードを開く</h3>
+            <p>上のボタンをタップするか、スマホのカメラでQRコードを読み取ります。</p>
+          </div>
+        </div>
 
-    <p class="note">
-      <b>Instagramからお越しの方へ：</b> このページがInstagram内のブラウザで開いている場合、右上のメニューから「ブラウザで開く」を選び、<b>Safari</b>または<b>Chrome</b>で開いてからお試しください。<br/><br/>
-      <b>For Instagram users:</b> If this opened inside the Instagram app, tap the menu (•••) and choose “Open in Browser” — then use <b>Safari</b> or <b>Chrome</b> for the best experience.
-    </p>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>カメラへのアクセスを許可</h3>
+            <p>画面に「カメラへのアクセス」を求められたら<b>「許可（Allow）」</b>を選択します。</p>
+          </div>
+        </div>
 
-    <footer>GEOMORPH — KYOKO ENDO</footer>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>トリガー画像（作品）にかざす</h3>
+            <p>カメラが起動したら、下にある<b>「LATTIS」のカード画像</b>にカメラを向けてスキャンしてください。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEP 3: Trigger Image -->
+    <div class="section">
+      <div class="section-title">🖼️ STEP 3：スキャン対象（トリガー画像）</div>
+      <div class="trigger-img-container">
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px;">PCでページを開いている方は、この画面の画像にスマホカメラをかざしてください</p>
+        <img src="LATTIS_CARD.jpg" alt="GEOMORPH SPECIMEN LATTIS CARD">
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 KYOKO ENDO. All rights reserved.</p>
+    </footer>
   </div>
+
 </body>
 </html>
