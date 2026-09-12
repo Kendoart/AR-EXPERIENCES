@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
       --accent-color: #66fcf1;
       --accent-hover: #45a29e;
       --white: #ffffff;
+      --subtext-color: #94a3b8;
     }
 
     * {
@@ -64,9 +65,15 @@
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      font-size: 0.95rem;
-      color: #8892b0;
+    .subtitle-en {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+
+    .subtitle-jp {
+      font-size: 0.9rem;
+      color: var(--subtext-color);
     }
 
     .section {
@@ -83,10 +90,14 @@
       margin-bottom: 20px;
       text-align: center;
       letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+    }
+
+    .section-title-jp {
+      font-size: 0.9rem;
+      color: var(--subtext-color);
+      display: block;
+      margin-top: 2px;
+      font-weight: normal;
     }
 
     /* Action Box */
@@ -101,7 +112,7 @@
     .btn-ar {
       display: inline-block;
       width: 100%;
-      max-width: 340px;
+      max-width: 360px;
       padding: 16px 24px;
       background: linear-gradient(135deg, #66fcf1 0%, #45a29e 100%);
       color: #0b0c10;
@@ -139,6 +150,7 @@
       position: relative;
       width: 100%;
       margin: 5px 0;
+      line-height: 1.4;
     }
 
     /* Step Cards Style */
@@ -176,12 +188,25 @@
     .step-content h3 {
       font-size: 1rem;
       color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .step-content h3 span.jp-title {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      font-weight: normal;
+      margin-left: 6px;
+    }
+
+    .step-content p.en {
+      font-size: 0.9rem;
+      color: #e2e8f0;
       margin-bottom: 4px;
     }
 
-    .step-content p {
-      font-size: 0.88rem;
-      color: #a8b2d1;
+    .step-content p.jp {
+      font-size: 0.82rem;
+      color: var(--subtext-color);
     }
 
     /* Trigger Image Section */
@@ -217,19 +242,31 @@
     <header>
       <div class="brand-title">GEOMORPH SPECIMEN 001</div>
       <h1>LATTIS AR</h1>
-      <p class="subtitle">アートワークをAR（拡張現実）で体験するページです</p>
+      <p class="subtitle-en">Experience the artwork in Augmented Reality (AR)</p>
+      <p class="subtitle-jp">アートワークをAR（拡張現実）で体験するページです</p>
     </header>
 
     <!-- STEP 1: Launch AR -->
     <div class="section">
-      <div class="section-title">✨ STEP 1：ARカメラを起動</div>
+      <div class="section-title">
+        ✨ STEP 1: Launch AR Experience
+        <span class="section-title-jp">✨ STEP 1：ARカメラを起動</span>
+      </div>
       <div class="action-box">
-        <p style="font-size: 0.9rem; color: #cbd5e1;">スマートフォンで閲覧中の方は直接タップしてください</p>
+        <p style="font-size: 0.9rem; color: #cbd5e1; text-align: center;">
+          If you are on a smartphone, tap below:<br>
+          <span style="font-size: 0.8rem; color: #94a3b8;">スマートフォンでご覧の方は直接タップしてください</span>
+        </p>
         
-        <!-- 直接クリックできるURLボタン -->
-        <a href="https://ar.kyokoendoart.com/LATTIS/" class="btn-ar" target="_blank" rel="noopener">🚀 AR体験を開く (カメラ起動)</a>
+        <!-- Direct Clickable URL Button -->
+        <a href="https://ar.kyokoendoart.com/LATTIS/" class="btn-ar" target="_blank" rel="noopener">
+          🚀 Open AR Experience (Camera)
+        </a>
         
-        <div class="or-text">── PCでご覧の方はQRコードをスキャン ──</div>
+        <div class="or-text">
+          ── Viewing on PC? Scan the QR code with your phone ──<br>
+          <span style="font-size: 0.78rem;">（PCでご覧の方はスマホでQRコードを読み取ってください）</span>
+        </div>
         
         <div class="qr-wrapper">
           <img src="adobe-express-qr-code.png" alt="AR Experience QR Code">
@@ -239,30 +276,36 @@
 
     <!-- STEP 2: Instruction -->
     <div class="section">
-      <div class="section-title">📱 STEP 2：体験の手順</div>
+      <div class="section-title">
+        📱 STEP 2: How to Experience
+        <span class="section-title-jp">📱 STEP 2：体験の手順</span>
+      </div>
       <div class="steps-container">
         
         <div class="step-card">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h3>リンクまたはQRコードを開く</h3>
-            <p>上のボタンをタップするか、スマホのカメラでQRコードを読み取ります。</p>
+            <h3>Open the Link <span class="jp-title">/ リンクを開く</span></h3>
+            <p class="en">Tap the button above or scan the QR code using your phone camera.</p>
+            <p class="jp">上のボタンをタップするか、スマホのカメラでQRコードを読み取ります。</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h3>カメラへのアクセスを許可</h3>
-            <p>画面に「カメラへのアクセス」を求められたら<b>「許可（Allow）」</b>を選択します。</p>
+            <h3>Allow Camera Access <span class="jp-title">/ カメラを許可</span></h3>
+            <p class="en">When prompted, tap "Allow" to enable camera access.</p>
+            <p class="jp">画面に表示されたら「許可（Allow）」を選択します。</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3>トリガー画像（作品）にかざす</h3>
-            <p>カメラが起動したら、下にある<b>「LATTIS」のカード画像</b>にカメラを向けてスキャンしてください。</p>
+            <h3>Scan the Specimen Card <span class="jp-title">/ 画像をスキャン</span></h3>
+            <p class="en">Point your camera at the LATTIS specimen card image below.</p>
+            <p class="jp">カメラが起動したら、下にある「LATTIS」のカード画像に向けてスキャンしてください。</p>
           </div>
         </div>
 
@@ -271,9 +314,15 @@
 
     <!-- STEP 3: Trigger Image -->
     <div class="section">
-      <div class="section-title">🖼️ STEP 3：スキャン対象（トリガー画像）</div>
+      <div class="section-title">
+        🖼️ STEP 3: Target Artwork (Trigger Image)
+        <span class="section-title-jp">🖼️ STEP 3：スキャン対象（トリガー画像）</span>
+      </div>
       <div class="trigger-img-container">
-        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px;">PCでページを開いている方は、この画面の画像にスマホカメラをかざしてください</p>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; line-height: 1.4;">
+          If viewing on PC, point your phone camera at this image on screen.<br>
+          <span style="font-size: 0.78rem;">（PCでご覧の方は、この画面上の画像にスマホカメラをかざしてください）</span>
+        </p>
         <img src="LATTIS_CARD.jpg" alt="GEOMORPH SPECIMEN LATTIS CARD">
       </div>
     </div>
