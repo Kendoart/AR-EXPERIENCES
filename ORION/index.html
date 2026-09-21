@@ -32,13 +32,13 @@
     <a-entity light="type: directional; intensity: 1" position="0 -1 2"></a-entity>
 
     <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model
-            src="#orionModel"
-            position="0 0 0"
-            rotation="0 0 0"
-            scale="1 1 1"
-             animation-mixer="Take 001; loop: repeat">
-        </a-gltf-model>
+       <a-gltf-model  
+    src="#orionModel"  
+    position="0 0 0"  
+    rotation="0 0 0"  
+    scale="1 1 1"  
+    animation-mixer="clip: *; loop: repeat">  
+</a-gltf-model>
     </a-entity>
   </a-scene>
 </body>
