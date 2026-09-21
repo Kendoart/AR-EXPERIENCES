@@ -1,46 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ2NK93B5P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindAR 3D Model</title>
 
-  gtag('config', 'G-SJ2NK93B5P');
-</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 1. A-Frame (3D表示ライブラリ) -->
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.7.0/dist/aframe-extras.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <!-- 2. MindAR (画像認識ARライブラリ) -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+  <!-- 3. aframe-extras (アニメーション再生ライブラリ: 必須) -->
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+
+  <!-- 4. マーカー認識時にアニメーションを再生するスクリプト -->
+  <script>
+    AFRAME.registerComponent('ar-animation-controller', {
+      init: function () {
+        const el = this.el;
+        // マーカーが検出されたらアニメーションを開始
+        this.el.sceneEl.addEventListener('targetFound', () => {
+          el.setAttribute('animation-mixer', {
+            clip: '*',       // 全てのアニメーションを対象
+            loop: 'repeat',  // 繰り返し再生
+            timeScale: 1     // 再生速度（1＝等倍）
+          });
+        });
+      }
+    });
+  </script>
 </head>
-<body style="margin: 0">
-  <a-scene
-    mindar-image="imageTargetSrc: ./ORION.mind; autoStart: true; filterMinCF: 0.0001; filterBeta: 0.001;"
-    renderer="colorManagement: true; physicallyCorrectLights: true"
-    vr-mode-ui="enabled: false"
+<body style="margin: 0; overflow: hidden;">
+
+  <a-scene 
+    mindar-image="imageTargetSrc: ./ORION.mind;" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
+
+    <!-- 3Dモデルなどのアセット読み込み -->
     <a-assets>
       <a-asset-item id="orionModel" src="./ORION.glb"></a-asset-item>
     </a-assets>
+
+    <!-- カメラの設定 -->
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity light="type: ambient; intensity: 1.2"></a-entity>
-    <a-entity light="type: directional; intensity: 1.5" position="1 3 2"></a-entity>
-    <a-entity light="type: directional; intensity: 1.2" position="-2 1 1"></a-entity>
-    <a-entity light="type: directional; intensity: 1" position="0 -1 2"></a-entity>
-
+    <!-- ターゲット画像0（ORION.mind）が映ったときにモデルを表示 -->
     <a-entity mindar-image-target="targetIndex: 0">
-       <a-gltf-model  
-    src="#orionModel"  
-    position="0 0 0"  
-    rotation="0 0 0"  
-    scale="1 1 1"  
-    animation-mixer="clip: *; loop: repeat">  
-</a-gltf-model>
+      <a-gltf-model  
+        src="#orionModel"  
+        position="0 0 0"  
+        rotation="0 0 0"  
+        scale="1 1 1"  
+        ar-animation-controller>  
+      </a-gltf-model>
     </a-entity>
+
   </a-scene>
+
 </body>
 </html>
-
